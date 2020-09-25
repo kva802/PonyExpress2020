@@ -1,12 +1,16 @@
-import math 
 
-def kv(a):
+
+def kv(a,n):
     b = []
-    b.append(a*4)
-    b.append(a*a)
-    b.append(math.sqrt(2*a*a))
+    b.append(a[0])
+    b.append(a[n])
     return(b)
 
-a = int(input())
+a = []
+int(input(n))
 
-print(kv(a))
+for i in range(n):
+    a.append(int(input()))
+
+
+print(kv(a,n))
