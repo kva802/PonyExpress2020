@@ -1,9 +1,8 @@
-def chet(a):
-    if a % 2 == 0:
-        return('да')
-    else:
-        return('нет')
+import math 
+
+def kv(a):
+    return(a*4, a*a, math.sqrt(2*math.sqr(a)))
 
 a = int(input())
 
-print(chet(a))
+print(kv(a))
