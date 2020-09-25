@@ -1,16 +1,12 @@
+def kv(a):
+    seta = set(a)
+    if len(a) == len(seta):
+        return('no')
+    else:
+        return ('yes')
+
+a = [1, 2, 2, 3]
 
 
-def kv(a,n):
-    b = []
-    b.append(a[0])
-    b.append(a[n])
-    return(b)
 
-a = []
-int(input(n))
-
-for i in range(n):
-    a.append(int(input()))
-
-
-print(kv(a,n))
+print(kv(a))
