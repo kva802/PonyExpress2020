@@ -1,7 +1,11 @@
 import math 
 
 def kv(a):
-    return(a*4, a*a, math.sqrt(2*math.sqr(a)))
+    b = []
+    b.append(a*4)
+    b.append(a*a)
+    b.append(math.sqrt(2*math.sqr(a)))
+    return(b)
 
 a = int(input())
 
