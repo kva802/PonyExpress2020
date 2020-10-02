@@ -1,12 +1,14 @@
-def kv(a):
-    seta = set(a)
-    if len(a) == len(seta):
-        return('no')
-    else:
-        return ('yes')
+class rectangle:
+    def __init__(self, list_of_dots []):
+        self.dots = list_of_dots
+    def square(self):
+        if self.list_of_dots[1][1] =! self.list_of_dots[2][1]:
+            a = self.list_of_dots[1][1] - self.list_of_dots[2][1]
+        elif self.list_of_dots[1][1] =! self.list_of_dots[3][1]:
+            a = self.list_of_dots[1][1] - self.list_of_dots[3][1]
+        else:
+            a = self.list_of_dots[1][1] - self.list_of_dots[4][1]
 
-a = [1, 2, 2, 3]
-
-
-
-print(kv(a))
+        return(a*a)
+    def perimeter(self):
+        return(a*4)
