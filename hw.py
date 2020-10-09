@@ -1,3 +1,12 @@
+import time
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver_path = r'C:\Users\Арина\Downloads\chromedriver.exe'
+driver = webdriver.Chrome(executable_path = driver_path)
+
+driver.get("http://pegasus-edu.pegasus.ponyex.local/")
 assert 'Пегас' == driver.title
 
 element_login = driver.find_element_by_name("login")
