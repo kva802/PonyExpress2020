@@ -79,7 +79,7 @@ def uprav_button_click(driver):
         print('не найдена кнопка управление разрешениями')
         driver.close()
 
-def groups_button_cick():
+def groups_button_cick(driver):
     try:
         groups_button = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH,
                                                                                           "/html/body/div[3]/div/div/div/div[2]/ul/li[7]/span/div/div/div/div/ul/li[1]/span/div/div/div/div/ul/li[1]/a")))
@@ -99,6 +99,7 @@ def test_creategroup(driver, name_of_group):
         create_button.click()
 
         elem_group_name = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[3]/div/div[2]/div/div[2]/form/div[1]/div/div/input")))
+        elem_group_name.send_keys(name_of_group)
     except:
         print('не открылась форма для заполнения')
         driver.close()
@@ -106,9 +107,6 @@ def test_creategroup(driver, name_of_group):
 
     try:
         save_name_button = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH,"/html/body/div[3]/div/div[2]/div/div[2]/form/div[2]/button[1]")))
-
-
-        elem_group_name.send_keys(name_of_group)
 
         save_name_button.click()
 
