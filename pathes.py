@@ -4,7 +4,7 @@
 driver_path = r'C:\Users\Арина\Downloads\chromedriver.exe'
 url_path = "http://pegasus-edu.pegasus.ponyex.local/"
 
-login = 'ext.mgu_education'
+login = 'ext.mgu2_education'
 password = 'rg#P5hZm4F'
 
 urls =[
