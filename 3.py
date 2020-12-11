@@ -29,7 +29,7 @@ def test_creategroup():
         answer = json.loads(r.text)
         print(answer)
         id_ = json.loads(r.text)['result']['id']
-        group_existence(tok) == 1
+        assert group_existence(tok) == 1
         return(id_)
     except:
         print('группа не создана')
@@ -45,8 +45,7 @@ def test_deletegroup(id_):
 
         r = requests.delete(url, headers = headers, params = params)
         r.status_code == 200
-        a = group_existence(tok)
-        a == 0
+        assert group_existence(tok) == 0
     except:
         print('группа не удалена')
 
