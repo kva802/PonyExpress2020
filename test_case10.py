@@ -1,6 +1,5 @@
 import mod_init
 
-
 def test_10():
     driver = mod_init.pony_driver_init()
     mod_init.test_enter(driver)
@@ -9,7 +8,8 @@ def test_10():
     mod_init.regist_of_events_button_click(driver)
     mod_init.pnsbs_71_button_click(driver)
     mod_init.continue_without_courier(driver)
-    mod_init.nomer_object(driver)
+    mod_init.number_of_object(driver, '11-1111-1111')
+
 
 if __name__ == "__main__":
     test_10()
