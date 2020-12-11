@@ -165,11 +165,9 @@ def pnsbs_71_button_click(driver):
 def continue_without_courier(driver):
     try:
 
-        cwc_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div/div[2]/div/div[2]/div/div[1]/div[1]/button[2]/span")))
+        cwc_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div/div[2]/div/div[2]/div/div/div[1]/div[1]/button[2]")))
 
-        #time.sleep(5)
         cwc_button.click()
-        #time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/section[2]/section/section/div[1]/h1"))).text == '71. Прибыл на склад (без сортировки)'
     except:
         print('кнопка Продолжить без курьера не найдена, не открылась форма 71. Прибыл на склад (без сортировки)')
@@ -180,7 +178,7 @@ def number_of_object(driver, number_of_object):
         elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/section[2]/section/section/div[2]/div[3]/div[2]/div/div/div[3]/form/input")))
         elem.send_keys(number_of_object)
         elem.send_keys('\n')
-        #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div/div/span")))
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/section[2]/section/section/div[2]/div[4]/div[2]/div/div/div/div/div[2]/div[2]/div/div[2]/p"))).text == number_of_object
         if elem.get_attribute('style') == 'background-color: rgb(194, 48, 48);':
             print('err')
         #time.sleep(5)
