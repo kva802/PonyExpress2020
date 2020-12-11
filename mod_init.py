@@ -178,13 +178,19 @@ def number_of_object(driver, number_of_object):
         elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/section[2]/section/section/div[2]/div[3]/div[2]/div/div/div[3]/form/input")))
         elem.send_keys(number_of_object)
         elem.send_keys('\n')
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/section[2]/section/section/div[2]/div[4]/div[2]/div/div/div/div/div[2]/div[2]/div/div[2]/p"))).text == number_of_object
         if elem.get_attribute('style') == 'background-color: rgb(194, 48, 48);':
             print('err')
         #time.sleep(5)
     except:
         print('не найдено поле для ввода номера объекта')
         driver.close()
+    try:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/div/div/span")))
+        print('номер объекта не валидный')
+        driver.close()
+    except:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[1]/section/section[2]/section/section/div[2]/div[4]/div[2]/div/div/div/div/div[2]/div[2]/div/div[2]/p"))).text == number_of_object
+
 
 def vvk_79_button_click(driver):
     try:
