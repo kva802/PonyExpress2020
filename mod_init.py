@@ -185,8 +185,11 @@ def number_of_object(driver, number_of_object):
         print('не найдено поле для ввода номера объекта')
         driver.close()
     try:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/div/div/span")))
-        print('номер объекта не валидный')
+
+        if (WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/div/div/span"))).text == '$_MARK_IS_NOT_BOUND_$'):
+            print('Марка не привязана')
+        elif (WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/div/div/span"))).text == f'$_OBJECT_NUMBER_NOT_VALID_$: {number_of_object}'):
+            print('номер объекта не валидный')
         driver.close()
     except:
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[1]/section/section[2]/section/section/div[2]/div[4]/div[2]/div/div/div/div/div[2]/div[2]/div/div[2]/p"))).text == number_of_object
