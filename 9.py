@@ -1,0 +1,37 @@
+import requests
+import json
+import pathes
+import autorization
+
+'''
+Нажать кнопку «Menu»  и выпавшем списке выбрать пункт «Производство» – «Регистрация событий» –  «71. Прибыл на склад (без сортировки)»
+Нажать кнопку «Продолжить без курьера»
+В поле ввода «Номер объекта» ввести текст «11-1111-1111» и нажать кнопку Enter
+'''
+
+def req_number_of_object():
+    try:
+        tok = autorization.autorisation()
+        url = 'http://events-backend-edu.pegasus.ponyex.local/api/v1/pegasus-events71/post-item'
+        data = {"scannedNumber": "0012345666",
+                "hostName": "abcde",
+                "eventBlockId": "356d56a1-6902-4ec4-b87c-08d8bec28892",
+                "pointId": "07c5c96a-6f52-428d-9332-0004c296067e"}
+        headers = {'Content-Type': 'application/json',
+                   'Authorization': 'Bearer ' + tok}
+        r = requests.post(url, data=json.dumps(data), headers=headers)
+        answer = json.loads(r.text)
+        if answer['metadata']['message'] == '$_OBJECT_NUMBER_NOT_VALID_$':
+            print('номер объекта не валидный')
+        elif answer['metadata']['message'] == '$_MARK_IS_NOT_BOUND_$':
+            print('Марка не привязана')
+        print(answer)
+    except:
+        print('ошибка')
+
+
+
+
+
+if __name__ == "__main__":
+    req_number_of_object()
