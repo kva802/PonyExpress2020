@@ -1,6 +1,6 @@
 import mod_init
 
-def test_11():
+def test_10():
     driver = mod_init.pony_driver_init()
     mod_init.test_enter(driver)
     mod_init.menu_button_click(driver)
@@ -12,4 +12,4 @@ def test_11():
 
 
 if __name__ == "__main__":
-    test_11()
+    test_10()
