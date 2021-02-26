@@ -12,6 +12,7 @@ import allure_pytest
 В поле ввода «Номер объекта» ввести текст «11-1111-1111» и нажать кнопку Enter
 '''
 
+
 def test_req_number_of_object():
     with allure.step('регистрация объекта'):
         try:
@@ -30,6 +31,7 @@ def test_req_number_of_object():
             print(answer)
         except:
             print('ошибка')
+
 
 if __name__ == "__main__":
     test_req_number_of_object()
