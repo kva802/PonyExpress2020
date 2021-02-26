@@ -276,24 +276,25 @@ def select_and_find_79(driver, name_of_destination):
 
 
 def add_79(driver):
-    try:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,
-                                                                        "/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div[1]/table/tbody/tr/td[1]/label/span"))).click()
-        add_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located(
-            (By.XPATH, "/html/body/div[4]/div/div[2]/div/div[2]/div/div[1]/div[1]/button[1]")))
-        add_button.click()
-        dalee_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div/div[2]/div/div[2]/form/div[2]/button")))
-    except:
-        print('не открылась форма «Точка назначения» с выбранной точкой')
-        driver.close()
-    try:
-        dalee_button.click()
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,
-                                                                        "/html/body/div[1]/section/section[2]/section/section/div[1]/h1"))).text == '79. Включен в консолидацию'
-    except:
-        print('не открылась форма «79. Включен в консолидацию» с номером созданного блока и точкой назначения')
-        driver.close()
+    with allure.step('открыть форму Выберите точку назначения «79. Включен в консолидацию» с номером созданного блока и точкой назначения'):
+        try:
+            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,
+                                                                            "/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div[1]/table/tbody/tr/td[1]/label/span"))).click()
+            add_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located(
+                (By.XPATH, "/html/body/div[4]/div/div[2]/div/div[2]/div/div[1]/div[1]/button[1]")))
+            add_button.click()
+            dalee_button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div/div[2]/div/div[2]/form/div[2]/button")))
+        except:
+            driver.close()
+            assert 0, 'не открылась форма «Точка назначения» с выбранной точкой'
+        try:
+            dalee_button.click()
+            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,
+                                                                            "/html/body/div[1]/section/section[2]/section/section/div[1]/h1"))).text == '79. Включен в консолидацию'
+        except:
+            driver.close()
+            assert 0, 'не открылась форма «79. Включен в консолидацию» с номером созданного блока и точкой назначения'
 
 
 if __name__ == "__main__":
