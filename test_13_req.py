@@ -2,7 +2,6 @@ import autorization
 import event_79_request
 import allure
 import pytest
-import allure_pytest
 
 
 
