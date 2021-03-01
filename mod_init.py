@@ -11,7 +11,13 @@ import pathes
 
 def pony_driver_init():
     with allure.step('инициализация'):
-        driver = webdriver.Chrome(executable_path=pathes.driver_path)
+        if pathes.browser == 'Safari':
+            driver = webdriver.Safari()
+        if pathes.browser == 'Firefox':
+            driver = webdriver.Firefox(executable_path=pathes.driver_path)
+        if pathes.browser == 'Chrome':
+            driver = webdriver.Chrome(executable_path=pathes.driver_path)
+
         driver.get(pathes.url_path)
         try:
             title = WebDriverWait(driver, 10).until(EC.title_is('Пегас'))
