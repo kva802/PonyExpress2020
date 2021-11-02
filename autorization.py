@@ -4,15 +4,15 @@ import pathes
 
 
 def autorisation():
-    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+    headers = {'Content-Type': 'application/x'}
     data = {'username': pathes.login,
             'password': pathes.password,
             'grant_type': 'password',
-            'scope': 'pegasus',
-            'client_id': 'pegasus-v2',
-            'client_secret': 'secret'}
+            'scope': '',
+            'client_id': '',
+            'client_secret': ''}
 
-    url = "http://srv-pnew-02-test:1001/auth/connect/token"
+    url = "http://"
 
     r = requests.post(url, data=data, headers=headers)
     answer = json.loads(r.text)
